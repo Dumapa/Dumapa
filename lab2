@@ -1,0 +1,214 @@
+n = int(input())
+numbers_1 = list(map(int, input().split()))
+sum_1 = sum(numbers_1)
+print(sum_1)
+
+
+n = int(input())
+count_1 = 0
+array_1 = list(map(int, input().split()))
+for orbit in array_1:
+    if orbit > 0:
+        count_1 += 1
+print(count_1)
+
+
+
+a = int(input())
+b = 1
+while a > b:
+    b *= 2
+if a == b:
+    print("YES")
+else:
+    print("NO")
+
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+print(max(array_1))
+
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+max_value = max(array_1)
+position_1 = array_1.index(max_value)
+print(position_1+1)
+
+
+
+a = int(input())
+n = 1
+while n <= a:
+    print(n, end=" ")
+    n *= 2
+
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+max_value = max(array_1)
+min_value = min(array_1)
+for b in array_1:
+    if b == max_value:
+      print(min_value, end=" ")
+      continue
+    else:
+      print(b, end=" ")
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+array_1.sort()
+print(*array_1[::-1])
+
+
+
+
+array_2 = list(map(int, input().split()))
+a = array_2[0]
+l = array_2[1]
+r = array_2[2]
+array_1 = list(map(int, input().split()))
+res = array_1[:l -1] + array_1[l - 1 : r ] [::-1]+array_1[r:]
+print(*res)
+
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+for b in array_1:
+    print(b**2)
+
+
+
+import math
+a = int(input())
+if  a < 2: 
+    print("NO")
+else:
+    for i in range(2, int(math.sqrt(a)) + 1):
+      if a % i == 0 :
+         print("NO")
+         break
+    else:
+         print("YES")
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+max_value= array_1.count(array_1[0])
+floppa = array_1[0]
+for b in array_1:
+    if array_1.count(b) > max_value:
+         max_value = array_1.count(b)
+         floppa = b
+    elif array_1.count(b) == max_value:
+         if b < floppa:
+             floppa = b
+print(floppa)
+
+
+
+a = int(input())
+array_1 = []
+for x in range(a):
+    array_1.append(input())
+unicorn = list(set(array_1))
+print(len(unicorn))
+
+
+a = int(input())
+array_1 = list(map(int, input().split()))
+orbit = set()
+for b in array_1:
+    if b in orbit:
+        print("NO")
+    else:
+        print("YES")
+        orbit.add(b)
+
+
+
+a = int(input())
+dict = []
+dict_1 = set()
+count_1 = 0
+for x in range(a):
+    dict.append(input())
+    dict_1.add(dict[x])
+for b in dict_1:
+    if dict.count(b) == 3:
+        count_1 += 1
+print(count_1)
+
+
+
+
+n = int(input())
+d = {}
+
+for i in range(n):
+    s = input()
+    if s not in d:
+        d[s] = i + 1
+for s in sorted(d):
+    print(s, d[s])
+
+
+
+
+n = int(input())
+d = {}
+for x in range(n):
+    a = list(map(str, input().split()))
+    name = a[0]
+    count = int(a[1])
+    if name in d:
+        d[name] += count
+    else:
+        d[name] = count
+for k in sorted(d):
+    print(k, d[k])
+
+
+
+
+
+n = int(input())
+db = {}
+for x in range(n):
+    cmd = input().split()
+    if cmd[0] == "set":
+        db[cmd[1]] = cmd[2]
+        
+    else:
+        key = cmd[1]
+        if key in db:
+            print(db[key])
+        else:
+            print(f"KE: no key {key} found in the document")
+
+
+
+
+import sys
+n_str = sys.stdin.readline()
+if n_str:
+    a = int(n_str)
+    db = {}
+    for _ in range(a):
+        cmd = sys.stdin.readline().split()
+        if not cmd:
+            continue
+            
+        if cmd[0] == "set":
+            db[cmd[1]] = cmd[2]
+        else:
+            key = cmd[1]
+            if key in db:
+                print(db[key])
+            else:
+                print(f"KE: no key {key} found in the document")
