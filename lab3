@@ -1,0 +1,26 @@
+x = int(input())
+def valid(n): 
+    while n > 0:
+        if n % 2 == 1:
+            return "Not valid"
+        else:
+            n //= 10
+    return "Valid"
+print(valid(x))
+
+
+
+x = int(input())
+def usual(n): 
+    if n <= 0:
+        return "NO"
+    for p in [2,3,5]:
+        while n % p == 0:
+            n //= p
+    if n == 1:
+        return"Yes"
+    else: 
+        return "No"
+print(usual(x))
+
+
