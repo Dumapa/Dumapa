@@ -186,3 +186,29 @@ for r in a :
         b += 1
 if b == 0:
      print("No primes")
+
+#1414141441414141141441414414141414414144141414141414
+import math
+n = int(input())
+b = list(map(int, input().split()))
+a = int(input())
+for x in range(a):
+    c = list(map(str, input().split()))
+    if c[0] == "add":
+        for y in range(n):
+            b[y] += int(c[1])
+            b[y] = int(b[y])
+    elif c[0] == "multiply":
+        for k in range(n):
+            b[k] *= int(c[1])
+            b[k] = int(b[k])
+    elif c[0] == "abs":
+        for m in range(n):
+            if b[m] < 0:
+                b[m] = -b[m]
+                b[m] = int(b[m])
+    elif c[0] == "power":
+        for i in range(n):
+            b[i] = math.pow(b[i],int(c[1]))
+            b[i] = int(b[i])
+print(*b)
