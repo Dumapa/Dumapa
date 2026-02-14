@@ -24,3 +24,36 @@ def usual(n):
 print(usual(x))
 
 
+
+
+s = input()
+lays=["ZER","ONE","TWO","THR","FOU","FIV","SIX","SEV","EIG","NIN"]
+a = 0
+for x in lays:
+    if s.find(x) != -1:
+        s = s.replace(x,str(a))
+        a += 1
+    else:
+        a += 1
+def calculator(n):
+    if n.find("+") != -1:
+        b = n.index("+")
+        return int(n[0:b]) + int(n[b + 1:])
+    elif n.find("*") != -1:
+        b = n.index("*")
+        return int(n[0:b]) * int(n[b + 1:])
+    elif n.find("-") != -1:
+        b = n.index("-")
+        return int(n[0:b]) - int(n[b + 1:])
+c = str(calculator(s))
+r = 0
+for x in lays:
+    if c.find(str(r)) != -1:
+        c = c.replace(str(r),x)
+        r += 1
+    else:
+        r += 1
+print(c)
+
+
+
