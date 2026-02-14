@@ -1,3 +1,4 @@
+#111111
 x = int(input())
 def valid(n): 
     while n > 0:
@@ -9,7 +10,7 @@ def valid(n):
 print(valid(x))
 
 
-
+#222222222222
 x = int(input())
 def usual(n): 
     if n <= 0:
@@ -25,7 +26,7 @@ print(usual(x))
 
 
 
-
+#33333333333333333
 s = input()
 lays=["ZER","ONE","TWO","THR","FOU","FIV","SIX","SEV","EIG","NIN"]
 a = 0
@@ -57,13 +58,113 @@ print(c)
 
 
 
-
+#444444444444
 a = str(input())
 print(a.upper())
 
+#55555555555
+a = list(map(int, input().split()))
+print(a[0] * a[1])
 
 
+#6666666666
 a = int(input())
 print(a * a)
 
 
+#7777777777777
+import math
+n = list(map(int, input().split()))
+b = list(map(int, input().split()))
+c = list(map(int, input().split()))
+class mops:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    def show(self):
+        print(f"({self.x}, {self.y})")
+    def move(self,new_x, new_y):
+        self.x = new_x
+        self.y = new_y
+    def dist(self, r):
+        return math.sqrt((self.x - r.x)**2 + (self.y - r.y)**2)
+a = mops(n[0],n[1])
+a.show()
+a.move(b[0], b[1])
+a.show()
+a1 = mops(c[0],c[1])
+print(f"{a.dist(a1):.2f}")
+
+
+#8888888888888888
+class Account:
+    def __init__(self,deposit,withdraw) :
+        self.deposit = int(deposit)
+        self.withdraw = int(withdraw)
+    def mortgage(self):
+        if self.deposit >= self.withdraw:
+            return self.deposit - self.withdraw
+        else:
+            return "Insufficient Funds"
+a = list(map(int, input().split()))
+b = Account(a[0],a[1])
+print(b.mortgage())
+
+#999999999999999
+class circle:
+    def __init__(self,r):
+        self.r = int(r)
+    def area(self):
+        return self.r*self.r*3.14159
+n = int(input())
+n = circle(n)
+print(f"{n.area():.2f}")
+
+#1010101010101010101010101010101010101010
+class student:
+    def __init__(self,name,gpa):
+        self.name = str(name)
+        self.gpa = float(gpa)
+    def nerd(self):
+        return f"Student: {self.name}, GPA: {self.gpa}"
+a = list(map(str, input().split()))
+pelmeni = student(str(a[0]), float(a[1]))
+print(pelmeni.nerd())
+
+#11111111111111111111111111111111111111111
+class student:
+    def __init__(self,name,gpa,tip,yt):
+        self.name = int(name)
+        self.gpa = int(gpa)
+        self.tip = int(tip)
+        self.yt = int(yt)
+    def nerd(self):
+        r = self.name + self.tip
+        r1 = self.gpa + self.yt 
+        return f"Result: {r} {r1}"
+a = list(map(int, input().split()))
+pelmeni = student(a[0],a[1],a[2],a[3])
+print(pelmeni.nerd())
+
+
+ 
+#121212121212121212121212121212121212121212121212121212121212121212121212121212112112112121
+def salcalc(a,b,c,d):
+     if a == "Employee":
+         return f"Name: {b}, Total: {c:.2f}"
+     elif a == "Manager":
+         c = c*(1 + d/100)
+         return f"Name: {b}, Total: {c:.2f}"
+     elif a == "Developer":
+         c = c + d*500
+         return f"Name: {b}, Total: {c:.2f}"
+     elif a == "Intern":
+         return f"Name: {b}, Total: {c:.2f}"
+c1 = list(map(str, input().split()))
+if len(c1) == 3:
+    c1.append("0")
+print(salcalc(str(c1[0]),str(c1[1]),int(c1[2]),int(c1[3])))
+
+
+
+#13131313131313131313131313131313131313131313113131131313
