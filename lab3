@@ -168,3 +168,21 @@ print(salcalc(str(c1[0]),str(c1[1]),int(c1[2]),int(c1[3])))
 
 
 #13131313131313131313131313131313131313131313113131131313
+import math
+def isprime(n):
+    if n < 2:
+        return -1
+    for x in range(2,int(math.sqrt(n) + 1)):
+         if n % x == 0:
+             return -1
+    return 1
+a = list(map(int, input().split()))
+b = 0
+for r in a :
+    if isprime(r) == -1:
+        continue
+    else:
+        print(r, end=" ")
+        b += 1
+if b == 0:
+     print("No primes")
