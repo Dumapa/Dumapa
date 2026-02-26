@@ -91,6 +91,7 @@ a = str(input())
 b = int(input())
 print(" ".join(limon(a,b)))
 
+
 #17 17 17 17 17 17 17 17 17
 import math
 def pirat(a,b,c):
@@ -101,6 +102,24 @@ def pirat(a,b,c):
         sum_floppa += math.sqrt(c[0]**2 + c[1]**2)
     return sum_floppa * 1.0000000000
 p = int(input())
+
+
+#10 10 10 10 10 10 10 10 10 10
+import json
+x = json.loads(input())
+y = json.loads(input())
+def row(source , patch):
+    if not isinstance(patch,dict):
+        return patch
+    if not isinstance(source,dict):
+        source = {}
+    for k,v in patch.items():
+        if v is None:
+            source.pop(k,None)
+        else:
+            source[k] = row(source.get(k), v)
+    return source
+result = row(x,y)
 r = list(map(int, input().split()))
 k = list(map(int, input().split()))
 print(f"{pirat(p,r,k)}.:10f")
