@@ -123,3 +123,24 @@ result = row(x,y)
 r = list(map(int, input().split()))
 k = list(map(int, input().split()))
 print(f"{pirat(p,r,k)}.:10f")
+
+#11 11 11 11 11 11 11 11 11 11 11
+import json
+def change(a,b,path=""):
+    if a == b:
+        return
+    if isinstance(a,dict) and isinstance(b,dict):
+        for k in sorted(set(a) | set(b)):
+            new_path =f"{path}.{k}" if path else k
+            yield from change(a.get(k, "<missing>"), b.get(k, "<missing>") , new_path)
+    else:
+        def final(v):
+            return "<missing>" if v == "<missing>" else json.dumps(v, separators = (',',':'))
+        yield f"{path} : {final(a)} -> {final(b)}"
+x,y = json.loads(input()), json.loads(input())
+differences = list(change(x,y))
+if not differences:
+    print("No differences")
+else:
+    print("\n".join(sorted(differences)))
+ 
