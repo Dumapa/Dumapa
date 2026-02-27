@@ -272,3 +272,204 @@ def solve():
 
 if __name__ == "__main__":
     solve()
+#17 17 17 17 17 17 17 17 17 17
+import math
+import sys
+
+def solve():
+    try:
+        data = sys.stdin.read().split()
+        if not data:
+            return
+        
+        r = float(data[0])
+        x1, y1 = float(data[1]), float(data[2])
+        x2, y2 = float(data[3]), float(data[4])
+    except (EOFError, IndexError):
+        return
+
+    dx = x2 - x1
+    dy = y2 - y1
+    
+    a = dx**2 + dy**2
+    b = 2 * (x1 * dx + y1 * dy)
+    c = x1**2 + y1**2 - r**2
+    
+    if a == 0:
+        if x1**2 + y1**2 <= r**2 + 1e-12:
+            print(f"{0.0:.10f}")
+        else:
+            print(f"{0.0:.10f}")
+        return
+
+    det = b**2 - 4 * a * c
+    
+    if det < 0:
+        print(f"{0.0:.10f}")
+        return
+    
+    sqrt_det = math.sqrt(det)
+    t1 = (-b - sqrt_det) / (2 * a)
+    t2 = (-b + sqrt_det) / (2 * a)
+    
+    t_start = max(0.0, t1)
+    t_end = min(1.0, t2)
+    
+    if t_start < t_end:
+        res = (t_end - t_start) * math.sqrt(a)
+        print(f"{res:.10f}")
+    else:
+        print(f"{0.0:.10f}")
+
+if __name__ == "__main__":
+    solve()
+#18 #18 18181818
+import sys
+
+def solve_418():
+    try:
+        data = sys.stdin.read().split()
+        if not data:
+            return
+        
+        x1 = float(data[0])
+        y1 = float(data[1])
+        x2 = float(data[2])
+        y2 = float(data[3])
+    except (EOFError, IndexError):
+        return
+
+    y1_abs = abs(y1)
+    y2_abs = abs(y2)
+    
+    if (y1_abs + y2_abs) == 0:
+        res_x = x1
+    else:
+        res_x = x1 + (x2 - x1) * y1_abs / (y1_abs + y2_abs)
+    
+    print(f"{res_x:.10f} {0.0:.10f}")
+
+if __name__ == "__main__":
+    solve_418()
+
+#18191919191991919119
+import math
+import sys
+
+def solve():
+    try:
+        input_data = sys.stdin.read().split()
+        if not input_data:
+            return
+        r = float(input_data[0])
+        x1, y1 = float(input_data[1]), float(input_data[2])
+        x2, y2 = float(input_data[3]), float(input_data[4])
+    except (EOFError, IndexError):
+        return
+
+    dist_sq = (x2 - x1)**2 + (y2 - y1)**2
+    dist = math.sqrt(dist_sq)
+    
+    if dist == 0:
+        print(f"{0.0:.10f}")
+        return
+
+    d1_sq = x1**2 + y1**2
+    d2_sq = x2**2 + y2**2
+    d1 = math.sqrt(d1_sq)
+    d2 = math.sqrt(d2_sq)
+
+    cross_prod = abs(x1 * y2 - x2 * y1)
+    h = cross_prod / dist
+    
+    dot1 = x1 * (x2 - x1) + y1 * (y2 - y1)
+    dot2 = x2 * (x1 - x2) + y2 * (y1 - y2)
+
+    if h >= r or dot1 >= 0 or dot2 >= 0:
+        print(f"{dist:.10f}")
+    else:
+        gamma = math.acos((x1 * x2 + y1 * y2) / (d1 * d2))
+        alpha = math.acos(r / d1)
+        beta = math.acos(r / d2)
+        
+        arc_len = r * (gamma - alpha - beta)
+        l1 = math.sqrt(d1_sq - r**2)
+        l2 = math.sqrt(d2_sq - r**2)
+        
+        print(f"{l1 + l2 + arc_len:.10f}")
+
+if __name__ == "__main__":
+    solve()
+
+#202020202020200220
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    n = int(input_data[0])
+    g = 0
+    non_local_n = 0
+    
+    idx = 1
+    for _ in range(n):
+        if idx + 1 >= len(input_data):
+            break
+        scope = input_data[idx]
+        value = int(input_data[idx + 1])
+        
+        if scope == "global":
+            g += value
+        elif scope == "nonlocal":
+            non_local_n += value
+        
+        idx += 2
+        
+    print(f"{g} {non_local_n}")
+
+if __name__ == "__main__":
+    solve()
+
+#21212121212121212121
+import sys
+import importlib
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    try:
+        q = int(input_data[0])
+    except ValueError:
+        return
+        
+    idx = 1
+    for _ in range(q):
+        if idx + 1 >= len(input_data):
+            break
+        
+        module_path = input_data[idx]
+        attr_name = input_data[idx + 1]
+        idx += 2
+        
+        try:
+            module = importlib.import_module(module_path)
+        except ImportError:
+            print("MODULE_NOT_FOUND")
+            continue
+            
+        if not hasattr(module, attr_name):
+            print("ATTRIBUTE_NOT_FOUND")
+            continue
+            
+        attr = getattr(module, attr_name)
+        if callable(attr):
+            print("CALLABLE")
+        else:
+            print("VALUE")
+
+if __name__ == "__main__":
+    solve()
