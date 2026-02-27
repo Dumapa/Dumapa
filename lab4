@@ -237,3 +237,38 @@ def seconds(a):
 c = input().split()
 b = input().split()
 print(abs(seconds(b) - seconds(c)) // 86400)
+#16 16 16 16 16 16
+import sys
+from datetime import datetime, timezone, timedelta
+
+def parse_time(s):
+    # Format: YYYY-MM-DD HH:MM:SS UTC+HH:MM
+    parts = s.strip().split()
+    date_str = f"{parts[0]} {parts[1]}"
+    tz_str = parts[2]
+    
+    # Parse offset
+    offset_sign = 1 if '+' in tz_str else -1
+    offset_parts = tz_str.replace('UTC+', '').replace('UTC-', '').split(':')
+    hours = int(offset_parts[0])
+    minutes = int(offset_parts[1])
+    
+    offset = timedelta(hours=hours, minutes=minutes) * offset_sign
+    tz = timezone(offset)
+    
+    dt = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+    return dt.replace(tzinfo=tz)
+
+def solve():
+    lines = sys.stdin.readlines()
+    if len(lines) < 2:
+        return
+    
+    t1 = parse_time(lines[0])
+    t2 = parse_time(lines[1])
+    
+    diff = int((t2 - t1).total_seconds())
+    print(abs(diff))
+
+if __name__ == "__main__":
+    solve()
