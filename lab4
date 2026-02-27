@@ -222,43 +222,18 @@ input_data = sys.stdin.read().splitlines()
 if len(input_data) >= 2:
     s1 = get_total_seconds(input_data[0])
     s2 = get_total_seconds(input_data[1])
-    # По условию: floor(|delta| / 86400)
+    floor(|delta| / 86400)
     print(abs(s1 - s2) // 86400)
 
 #15 15 15 15 15 15 151 51 115 15 151
-import sys
- from datetime import datetime, timedelta, timezone
+def seconds(a):
+    y, m, d = map(int, a[0].split("-"))
+    if m < 3: y -= 1; m += 12
+    days = y*365 + y//4 - y//100 + y//400 + (153*m + 8)//5 + d
+    tz = a[1][3:]
+    s = 1 if tz[0] == '+' else -1
+    return days * 86400 - s * (int(tz[1:3])*3600 + int(tz[4:6])*60)
 
- def parse_line(s):
-     s = s.strip()
-     date_part, tz_part = s.split()
-     y, m, d = map(int, date_part.split("-"))
-     sign = 1 if tz_part[3] == '+' else -1
-     hh = int(tz_part[4:6])
-     mm = int(tz_part[7:9])
-     tz = timezone(sign * timedelta(hours=hh, minutes=mm))
-     local_midnight = datetime(y, m, d, 0, 0, 0, tzinfo=tz)
-     return y, m, d, tz, local_midnight.astimezone(timezone.utc)
-
-def is_leap(y):
-    return y % 400 == 0 or (y % 4 == 0 and y % 100 != 0)
-
-def bday_utc(bm, bd, birth_tz, year):
-     if bm == 2 and bd == 29 and not is_leap(year):
-         bd = 28
-     return datetime(year, bm, bd, 0, 0, 0, tzinfo=birth_tz).astimezone(timezone.utc)
-
-lines = sys.stdin.read().strip().splitlines()
-_, bm, bd, birth_tz, _ = parse_line(lines[0])
-cy, _, _, _, curr_utc = parse_line(lines[1])
-
-cand = bday_utc(bm, bd, birth_tz, cy)
-if cand < curr_utc:
-     cand = bday_utc(bm, bd, birth_tz, cy + 1)
-
- delta = int((cand - curr_utc).total_seconds())
- if delta <= 0:
-     print(0)
- else:
-     print((delta + 86400 - 1) // 86400)
-
+c = input().split()
+b = input().split()
+print(abs(seconds(b) - seconds(c)) // 86400)
