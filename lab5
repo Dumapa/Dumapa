@@ -1,0 +1,60 @@
+#1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+import re
+strint = str(input())
+if re.match("Hello", strint):
+    print("Yes")
+else:
+    print("No")
+
+#2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+import re
+string = str(input())
+string_1 = str(input())
+if re.search(string_1 , string):
+    print("Yes")
+else:
+    print("No")
+
+#3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+import re
+string = str(input())
+string_1 = str(input())
+a = re.findall(string_1, string)
+print(len(a))
+
+#4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+import re
+string = str(input())
+digits = re.findall(r'\d',string)
+print(" ".join(digits))
+
+#5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+import re
+string = str(input())
+if re.match(r'^[a-zA-Z].*\d$',string):
+    print("Yes")
+else:
+    print("No")
+
+#6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+import re
+string = str(input())
+match = re.search(r'\S+@\S+\.\S+', string)
+if match:
+    print(match.group())
+else:
+    print("No email")
+
+#7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+import re
+string = str(input())
+string_1 = str(input())
+string_2 = str(input())
+print(re.sub(string_1,string_2,string))
+
+import re; print(re.sub(input(), input(), input()))
+
+#8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+import re; s, d = [input() for _ in range(2)]; print(",".join(re.split(d, s)))
+
+#9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
