@@ -57,4 +57,63 @@ import re; print(re.sub(input(), input(), input()))
 #8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
 import re; s, d = [input() for _ in range(2)]; print(",".join(re.split(d, s)))
 
-#9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+#9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+import re
+result = re.findall(r'\b\w{3}\b', input())
+print(len(result
+
+#10 10 10 10 10 10 10 10 10 10 10 10
+import re
+if re.search(r'cat|dog',input()):
+    print("Yes")
+else:
+    print("No")
+
+#11 11 11 11 11 11 11 11 11 11 11 11
+import re;print(len(re.findall(r'[A-Z]',input())))
+
+#12 12 12 12 12 12 12 12 12 12 12 12
+import re; print(*(re.findall(r'\d{2,}',input())))
+
+#13 13 13 13 13 13 13 13 13 13 13 13
+import re; print(len(re.findall(r'\w+',input())))
+
+#14 14 14 14 14 14 14 14 14 14 14 14
+import re;
+if re.compile(r'\d+$').match(input()):
+    print("Match")
+else:
+    print("No match")
+
+#15 15 15 15 15 15 15 15 15 15 15 15
+import re; print(re.sub(r'\d', lambda m: m.group()*2, input()))
+
+#16 16 16 16 16 16 16 16 16 16 16 16
+import re
+match = re.search(r'Name:\s+(.*?),\s+Age:\s+(\d+)',input())
+if match:
+    name = match.group(1)
+    age = match.group(2)
+    print(f"{name} {age}")
+
+#17 17 17 17 17 17 17 17 17 17 17 17
+import re
+a = len(re.findall(r'\d{2}/\d{2}/\d{4}',input()))
+if a >= 0:
+    print(a)
+else:
+    print("No dates")
+
+#18 18 18 18 18 18 18 18 18 18 18 18
+import re
+s = input()
+p = input()
+c = re.escape(p)
+match = re.findall(c,s)
+print(len(match))
+
+#19 19 19 19 19 19 19 19 19 19 19 19
+import re
+pat = re.compile(r'\b\w+\b')
+match = pat.findall(input())
+print(len(match))
