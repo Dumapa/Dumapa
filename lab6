@@ -23,4 +23,58 @@ print(len(c))
 numbers = map(int, input().split())
 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 print(len(even_numbers))
+
 #333333333333333333333333333333333333
+n = input()
+a = input().split()
+floppa = []
+for x, word in enumerate(a):
+     pair = f"{x}:{word}"
+     floppa.append(pair)
+print(" ".join(floppa))
+
+#444444444444444444444444444444444444
+c = input()
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+pairs = zip(a,b)
+minecraft = 0
+for x,y in pairs:
+    minecraft += x * y
+print(minecraft)
+
+#55555555555555555555555555555555555
+s = input().lower()
+minecraft = "aeiuo"
+if any(char in s for char in minecraft):
+    print("Yes")
+else:
+    print("No")
+
+#66666666666666666666666666666666666
+floppalovespelmeniandlaysflopppaaflopppppa = input()
+a = list(map(int, input().split()))
+if all(x >= 0 for x in a):
+    print("Yes")
+else:
+    print("No")
+
+#7777777777777777777777777777777777
+a = input()
+b = input().split()
+floppa1999 = max(b, key=len)
+print(floppa1999)
+
+#888888888888888888888888888888888
+flopppa2026 = input()
+a = map(int, input().split())
+b = sorted(set(a))
+print(*b)
+
+#99999999999999999999999999999999
+flooppaetspelmeni = input()
+a = input().split()
+b = input().split()
+minecraft = input()
+dictionary = dict(zip(a,b))
+print(dictionary.get(minecraft, "Not found"))
