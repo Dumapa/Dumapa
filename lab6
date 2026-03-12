@@ -1,0 +1,26 @@
+#11111111111111111111111111111111111111
+c = input()
+a = map(int, input().split())
+b = map(lambda x: x**2, a)
+print(sum(b))
+
+#2222222222222222222222222222222222222
+a = input()
+b = list(map(int, input().split()))
+c = []
+def floppa(x):
+    if x % 2 == 0:
+        return True
+    else:
+        return False
+orbit = filter(floppa, b)
+for x in orbit:
+    c.append(x)
+print(len(c))
+
+или
+
+numbers = map(int, input().split())
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(len(even_numbers))
+#333333333333333333333333333333333333
