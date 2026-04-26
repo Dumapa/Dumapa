@@ -1,0 +1,6 @@
+# Настройки подключения базе
+host = "127.0.0.1"
+user = "postgres"
+password = "2128071917"
+db_name = "postgres"
+port = "5433" 
